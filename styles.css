@@ -46,7 +46,8 @@ em { color: var(--mint); font-weight: 400; }
 .main-nav { display: flex; align-items: center; gap: 26px; }
 .main-nav a { padding: 8px 0; color: var(--muted); font-size: 12px; border-bottom: 1px solid transparent; }
 .main-nav a:hover, .main-nav a.active { color: var(--mint); border-color: var(--mint); }
-.resume-link { font: 12px var(--mono); }
+.header-actions { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+.resume-link { font: 12px var(--mono); white-space: nowrap; }
 .resume-link span { color: var(--mint); margin-left: 9px; }
 .menu-toggle { display: none; }
 
@@ -283,7 +284,8 @@ summary::-webkit-details-marker { display: none; }
 @media (max-width: 680px) {
   html { scroll-padding-top: 85px; }
   .section-wrap { width: calc(100% - 40px); }
-  .site-header { height: 75px; padding-inline: 20px; gap: 20px; }
+  .site-header { min-height: 75px; height: auto; padding: 14px 20px; gap: 12px; flex-wrap: wrap; }
+  .header-actions { gap: 14px; margin-left: auto; }
   .identity { gap: 12px; }
   .identity-text { display: block; font-size: 12px; }
   .identity-text small { font-size: 8px; }
