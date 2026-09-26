@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07100f"><meta name="description" content="Predictive modeling with temporal evaluation and feature attribution for wide receivers and tight ends.">
+<meta property="og:title" content="NFL injured reserve prediction · Rohan Butani"><meta property="og:description" content="Predictive modeling with temporal evaluation and feature attribution for wide receivers and tight ends."><meta property="og:type" content="article">
+<title>NFL injured reserve prediction · Rohan Butani</title><link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css"><script src="../../app.js" defer></script></head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header detail-header"><a class="identity" href="../../" aria-label="Rohan Butani home"><span class="monogram">rb<span>.</span></span><span class="identity-text">Rohan Butani<small>research / engineering</small></span></a><a class="detail-nav" href="../../#work">← Selected work</a><a class="cv-link" href="../../cv.html">CV ↗</a></header>
+<main id="main" class="section-wrap detail-main"><a class="back-link" href="../../#work">← Back to selected work</a><p class="eyebrow section-label">Selected work / Biomedical prediction</p><h1>NFL injured reserve prediction</h1><p class="detail-subtitle">Predictive modeling with temporal evaluation and feature attribution for wide receivers and tight ends.</p><div class="detail-meta"><span>IEEE MIT URTC 2025</span><span>~746 player-seasons</span><span>~152 positive IR cases</span></div><article class="detail-body" aria-label="Project details">
+<h2>The question</h2>
+<p>Can performance, exposure, and prior-injury information help predict injured-reserve outcomes for NFL wide receivers and tight ends?</p>
+<h2>Temporal evaluation</h2>
+<p>The dataset includes approximately <strong>746 player-seasons</strong> and <strong>152 positive injured-reserve cases</strong>. Training data covers 2018–2022, with 2023 used for testing. This separates model fitting from a later season rather than mixing seasons across the evaluation.</p>
+<h2>Features and models</h2>
+<p>Representative features include targets, yards, average cushion, total snaps, forty-yard dash time, and previous injured-reserve count. The study compares XGBoost, a multilayer perceptron, and a random forest.</p>
+<table><caption>Approximate balanced accuracy on the temporal test</caption><thead><tr><th scope="col">Model</th><th scope="col">Balanced accuracy</th></tr></thead><tbody><tr><td>XGBoost</td><td>~58.3%</td></tr><tr><td>MLP</td><td>~57.0%</td></tr><tr><td>Random Forest</td><td>~55.9%</td></tr></tbody></table>
+<h2>Interpretation</h2>
+<p>SHAP drivers included forty-yard dash time, average cushion, and total snaps. These are model associations, not evidence that changing a feature would change an athlete’s injury risk.</p>
+<p>The modest balanced accuracies make the limitations visible. The study offers experience with temporal evaluation, explainability, and predictive modeling in a health-related domain; it does not establish a deployable clinical decision tool.</p></article><div class="detail-end"><a href="mailto:rbutani1@jh.edu">Discuss this work ↗</a><a href="../biofm/">Next project →</a></div></main>
+<footer class="site-footer section-wrap"><span>© <span id="year">2026</span> Rohan Butani</span><a href="../../">Back to home ↗</a></footer></body></html>
