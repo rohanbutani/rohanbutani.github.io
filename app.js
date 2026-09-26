@@ -96,3 +96,19 @@ if (rotatingInterest) window.setInterval(() => {
   rotatingInterest.textContent = interests[interestIndex];
 }, 5500);
 
+const filters = document.querySelectorAll('[data-filter]');
+filters.forEach(button => button.addEventListener('click', () => {
+  filters.forEach(filter => {
+    const active = filter === button;
+    filter.classList.toggle('active', active);
+    filter.setAttribute('aria-pressed', String(active));
+  });
+  let visible = 0;
+  document.querySelectorAll('[data-categories]').forEach(card => {
+    const show = button.dataset.filter === 'all' || card.dataset.categories.split(' ').includes(button.dataset.filter);
+    card.hidden = !show;
+    if (show) visible++;
+  });
+  document.querySelector('#work-count').textContent = `${String(visible).padStart(2, '0')} selected project${visible === 1 ? '' : 's'}`;
+}));
+
