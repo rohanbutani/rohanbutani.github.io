@@ -112,3 +112,15 @@ filters.forEach(button => button.addEventListener('click', () => {
   document.querySelector('#work-count').textContent = `${String(visible).padStart(2, '0')} selected project${visible === 1 ? '' : 's'}`;
 }));
 
+document.querySelector('.copy-email')?.addEventListener('click', async () => {
+  const status = document.querySelector('.copy-feedback');
+  try {
+    await navigator.clipboard.writeText('rbutani1@jh.edu');
+    status.textContent = 'Email address copied.';
+  } catch {
+    status.textContent = 'Select and copy: rbutani1@jh.edu';
+  }
+});
+document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+const year = document.querySelector('#year');
+if (year) year.textContent = new Date().getFullYear();
