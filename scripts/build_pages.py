@@ -48,7 +48,7 @@ PROJECTS = [
     },
     {
         'id': 'ablations', 'section': 'projects', 'label': 'Projects / Partial-input reasoning ablations',
-        'title': 'What remains when the question is missing?',
+        'title': 'No Question, No Passage, No Problem: Investigating Artifact Exploitation and Reasoning in Multiple-Choice Reading Comprehension',
         'description': 'Partial-input ablations for multiple-choice reasoning: investigating what benchmarks actually measure.',
         'meta': ['May 2025–present', 'RANLP 2025 Student Research Workshop', 'NeurIPS 2025 workshops'],
         'body': '''
