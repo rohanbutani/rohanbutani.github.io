@@ -1,4 +1,3 @@
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const header = document.querySelector('.site-header');
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
@@ -35,7 +34,8 @@ if ('IntersectionObserver' in window && nav) {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
       nav.querySelectorAll('a').forEach(link => {
-        const active = link.getAttribute('href') === `#${entry.target.id}`;
+        const sectionId = entry.target.id === 'professional-experience' ? 'experience' : entry.target.id;
+        const active = link.getAttribute('href') === `#${sectionId}`;
         link.classList.toggle('active', active);
         if (active) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
@@ -44,57 +44,6 @@ if ('IntersectionObserver' in window && nav) {
   }, { rootMargin: '-15% 0px -60% 0px', threshold: 0 });
   sections.forEach(section => observer.observe(section));
 }
-
-const mapDescriptions = {
-  bio: 'BioFMs / Reusable representations of sequence, structure, and cellular state.',
-  protein: 'Protein design / Moving from predicting biology to proposing useful designs.',
-  scientific: 'Scientific ML / Learned models informed by geometry, dynamics, and mechanism.',
-  interpretability: 'Interpretability / What does a representation know, and where does it fail?',
-  health: 'Health ML / Reliable prediction grounded in real clinical questions.',
-  genomics: 'Genomics / Learning from biological variation across sequences and systems.',
-  generative: 'Generative models / Diffusion, flow matching, and constrained sampling.'
-};
-let pinnedNode = null;
-function highlightNode(id) {
-  document.querySelectorAll('.map-node').forEach(node => node.classList.toggle('active', node.dataset.node === id));
-  document.querySelectorAll('[data-edge]').forEach(edge => edge.classList.toggle('active', edge.dataset.edge === id));
-  const description = document.querySelector('#map-description');
-  if (description) description.textContent = mapDescriptions[id] || 'Explore the connections. Hover or select a node.';
-}
-document.querySelectorAll('.map-node').forEach(node => {
-  node.setAttribute('aria-pressed', 'false');
-  node.addEventListener('pointerenter', () => highlightNode(node.dataset.node));
-  node.addEventListener('pointerleave', () => highlightNode(pinnedNode));
-  node.addEventListener('focus', () => highlightNode(node.dataset.node));
-  node.addEventListener('blur', () => highlightNode(pinnedNode));
-  node.addEventListener('click', () => {
-    pinnedNode = pinnedNode === node.dataset.node ? null : node.dataset.node;
-    document.querySelectorAll('.map-node').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.node === pinnedNode)));
-    highlightNode(pinnedNode);
-  });
-});
-
-const interests = ['protein representation learning', 'generative molecular design', 'scientific foundation models', 'mechanistic biological models', 'reliable AI for high-stakes domains', 'multi-agent adaptation and scaling'];
-let interestIndex = 0;
-let motionPaused = reducedMotion.matches;
-const motionButton = document.querySelector('.motion-toggle');
-function updateMotionControl() {
-  document.body.classList.toggle('motion-paused', motionPaused);
-  if (!motionButton) return;
-  motionButton.disabled = reducedMotion.matches;
-  motionButton.textContent = motionPaused ? '▶' : 'Ⅱ';
-  motionButton.setAttribute('aria-pressed', String(motionPaused));
-  motionButton.setAttribute('aria-label', reducedMotion.matches ? 'Animations disabled by your reduced-motion preference' : motionPaused ? 'Resume animations' : 'Pause animations');
-}
-motionButton?.addEventListener('click', () => { motionPaused = !motionPaused; updateMotionControl(); });
-reducedMotion.addEventListener('change', () => { motionPaused = reducedMotion.matches; updateMotionControl(); });
-updateMotionControl();
-const rotatingInterest = document.querySelector('#rotating-interest');
-if (rotatingInterest) window.setInterval(() => {
-  if (motionPaused || reducedMotion.matches || document.hidden) return;
-  interestIndex = (interestIndex + 1) % interests.length;
-  rotatingInterest.textContent = interests[interestIndex];
-}, 5500);
 
 const filters = document.querySelectorAll('[data-filter]');
 filters.forEach(button => button.addEventListener('click', () => {
@@ -109,7 +58,7 @@ filters.forEach(button => button.addEventListener('click', () => {
     card.hidden = !show;
     if (show) visible++;
   });
-  document.querySelector('#work-count').textContent = `${String(visible).padStart(2, '0')} selected project${visible === 1 ? '' : 's'}`;
+  document.querySelector('#work-count').textContent = `${String(visible).padStart(2, '0')} research project${visible === 1 ? '' : 's'}`;
 }));
 
 document.querySelector('.copy-email')?.addEventListener('click', async () => {
