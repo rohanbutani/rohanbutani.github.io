@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07100f"><meta name="description" content="What has to happen between a strong model result and a useful scientific decision?">
+<meta property="og:title" content="From prediction to intervention in biological ML · Rohan Butani"><meta property="og:description" content="What has to happen between a strong model result and a useful scientific decision?"><meta property="og:type" content="article">
+<title>From prediction to intervention in biological ML · Rohan Butani</title><link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css"><script src="../../app.js" defer></script></head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header detail-header"><a class="identity" href="../../" aria-label="Rohan Butani home"><span class="monogram">rb<span>.</span></span><span class="identity-text">Rohan Butani<small>research / engineering</small></span></a><a class="detail-nav" href="../../#notes">← Research notebook</a><a class="cv-link" href="../../cv.html">CV ↗</a></header>
+<main id="main" class="section-wrap detail-main"><a class="back-link" href="../../#notes">← Back to the notebook</a><p class="eyebrow section-label">Research notebook / Note 002</p><h1>From prediction to intervention in biological ML</h1><p class="detail-subtitle">What has to happen between a strong model result and a useful scientific decision?</p><div class="detail-meta"><span>Concept sketch</span><span>September 2026</span><span>AI for therapeutics</span></div><article class="detail-body" aria-label="Notebook entry">
+<h2>A prediction is a starting point</h2>
+<p>AlphaFold 3 illustrates the expanding scope of biomolecular prediction, modeling structures of complexes involving proteins and other molecular components. That makes it a useful reference point for a question I care about: how should a predicted interaction inform the next experiment? <a href="https://www.nature.com/articles/s41586-024-07487-w">Abramson et al., Nature (2024)</a>.</p>
+<h2>Work backward from the decision</h2>
+<p>When I think about a biological ML project, I want to start with a specific user and decision. Is a scientist choosing a target, ranking candidates for an assay, or deciding which hypothesis to test? Each decision suggests a different evaluation.</p>
+<p>A useful project description should say what the model observes, what it predicts, and what action that prediction could support. It should also say which uncertainties remain unresolved.</p>
+<h2>Questions for an evaluation</h2>
+<ul><li>What experimental budget or constraint is the model meant to help with?</li><li>Does the test set reflect the kind of new candidate the scientist would encounter?</li><li>Which errors are expensive, and can the model express uncertainty about them?</li><li>What experiment could disprove the proposed interpretation?</li></ul>
+<h2>My working direction</h2>
+<p>I want to connect representation learning with decisions that can be investigated experimentally. In my own trajectory, that means building a stronger understanding of biology alongside modeling and evaluation. Therapeutic discovery is the direction I am working toward, and these are the questions I want to bring to it.</p></article><div class="detail-end"><a href="mailto:rbutani1@jh.edu">Discuss this question ↗</a><a href="../interpretability-biology/">Next note →</a></div></main>
+<footer class="site-footer section-wrap"><span>© <span id="year">2026</span> Rohan Butani</span><a href="../../">Back to home ↗</a></footer></body></html>
