@@ -122,8 +122,6 @@ em { color: var(--mint); font-weight: 400; }
 .build-featured .build-details { align-self: center; padding-left: 25px; border-left: 1px solid #ceddc6; }
 .build-featured .build-details p { font-size: 12px; }
 .build-featured .build-link { grid-column: 1 / -1; margin-top: 2px; }
-.build-card:last-child:nth-child(even):not(.build-featured) { grid-column: 1 / -1; }
-.build-card:last-child:nth-child(even):not(.build-featured) p { max-width: 760px; }
 
 /* Research and professional experience */
 .timeline { border-top: 1px solid var(--line); }
