@@ -83,7 +83,7 @@ PROJECTS = [
 <p>The modest balanced accuracies make the limitations visible. The study offers experience with temporal evaluation, explainability, and predictive modeling in a health-related domain; it does not establish a deployable clinical decision tool.</p>'''
     },
     {
-        'id': 'biofm', 'section': 'projects', 'label': 'Projects / Emerging AI-for-science project',
+        'id': 'biofm', 'draft': True, 'section': 'projects', 'label': 'Projects / Emerging AI-for-science project',
         'title': 'Molecular visualization / BioFM playground',
         'description': 'A planned research environment for connecting protein sequence, structure, and learned representations.',
         'meta': ['Design stage', 'Exploratory builder project', 'Capabilities below are planned'],
@@ -227,8 +227,9 @@ def render(page, kind, next_page):
 <footer class="site-footer section-wrap"><span>© <span id="year">2026</span> Rohan Butani</span><a href="../../">Back to home ↗</a></footer></body></html>'''
 
 for kind, pages in [('work', PROJECTS), ('notes', NOTES), ('projects', BUILDS)]:
+    pages = [page for page in pages if not page.get('draft', False)]
     for i, page in enumerate(pages):
         directory = ROOT / kind / page['id']
         directory.mkdir(parents=True, exist_ok=True)
         (directory / 'index.html').write_text(render(page, kind, pages[(i + 1) % len(pages)]))
-print(f'Generated {len(PROJECTS) + len(BUILDS)} research/project pages and {len(NOTES)} notebook pages.')
+print(f'Generated {sum(not p.get("draft", False) for p in PROJECTS + BUILDS)} research/project pages and {len(NOTES)} notebook pages.')
