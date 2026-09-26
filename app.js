@@ -54,5 +54,3 @@ document.querySelector('.copy-email')?.addEventListener('click', async () => {
     status.textContent = 'Select and copy: rbutani1@jh.edu';
   }
 });
-const year = document.querySelector('#year');
-if (year) year.textContent = new Date().getFullYear();
