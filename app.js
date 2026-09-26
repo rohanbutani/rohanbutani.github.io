@@ -74,3 +74,25 @@ document.querySelectorAll('.map-node').forEach(node => {
   });
 });
 
+const interests = ['protein representation learning', 'generative molecular design', 'scientific foundation models', 'mechanistic biological models', 'reliable AI for high-stakes domains', 'multi-agent adaptation and scaling'];
+let interestIndex = 0;
+let motionPaused = reducedMotion.matches;
+const motionButton = document.querySelector('.motion-toggle');
+function updateMotionControl() {
+  document.body.classList.toggle('motion-paused', motionPaused);
+  if (!motionButton) return;
+  motionButton.disabled = reducedMotion.matches;
+  motionButton.textContent = motionPaused ? '▶' : 'Ⅱ';
+  motionButton.setAttribute('aria-pressed', String(motionPaused));
+  motionButton.setAttribute('aria-label', reducedMotion.matches ? 'Animations disabled by your reduced-motion preference' : motionPaused ? 'Resume animations' : 'Pause animations');
+}
+motionButton?.addEventListener('click', () => { motionPaused = !motionPaused; updateMotionControl(); });
+reducedMotion.addEventListener('change', () => { motionPaused = reducedMotion.matches; updateMotionControl(); });
+updateMotionControl();
+const rotatingInterest = document.querySelector('#rotating-interest');
+if (rotatingInterest) window.setInterval(() => {
+  if (motionPaused || reducedMotion.matches || document.hidden) return;
+  interestIndex = (interestIndex + 1) % interests.length;
+  rotatingInterest.textContent = interests[interestIndex];
+}, 5500);
+
