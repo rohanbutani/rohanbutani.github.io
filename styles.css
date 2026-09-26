@@ -46,8 +46,8 @@ em { color: var(--mint); font-weight: 400; }
 .main-nav { display: flex; align-items: center; gap: 26px; }
 .main-nav a { padding: 8px 0; color: var(--muted); font-size: 12px; border-bottom: 1px solid transparent; }
 .main-nav a:hover, .main-nav a.active { color: var(--mint); border-color: var(--mint); }
-.cv-link { font: 12px var(--mono); }
-.cv-link span { color: var(--mint); margin-left: 9px; }
+.resume-link { font: 12px var(--mono); }
+.resume-link span { color: var(--mint); margin-left: 9px; }
 .menu-toggle { display: none; }
 
 /* Introduction */
@@ -294,8 +294,8 @@ summary::-webkit-details-marker { display: none; }
   .main-nav { display: none; position: absolute; left: 20px; right: 20px; top: 69px; padding: 12px; grid-template-columns: repeat(3, 1fr); gap: 4px; background: white; border: 1px solid var(--line); box-shadow: 0 12px 25px #2033290d; border-radius: 3px; }
   .main-nav.open { display: grid; }
   .main-nav a { padding: 12px 8px; font-size: 12px; }
-  .cv-link { font-size: 11px; }
-  .cv-link span { margin-left: 4px; }
+  .resume-link { font-size: 11px; }
+  .resume-link span { margin-left: 4px; }
   .hero { padding-block: 43px 48px; gap: 32px; }
   .institution { font-size: 9px; }
   .hero-discipline { font-size: 8px; }
