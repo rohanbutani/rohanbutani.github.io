@@ -50,7 +50,7 @@ PROJECTS = [
         'id': 'ablations', 'section': 'projects', 'label': 'Projects / Partial-input reasoning ablations',
         'title': 'No Question, No Passage, No Problem: Investigating Artifact Exploitation and Reasoning in Multiple-Choice Reading Comprehension',
         'description': 'Partial-input ablations for multiple-choice reasoning: investigating what benchmarks actually measure.',
-        'meta': ['May 2025–present', 'RANLP 2025 Student Research Workshop', 'NeurIPS 2025 workshops'],
+        'meta': ['May 2025–present', 'NeurIPS 2025 workshops'],
         'body': '''
 <h2>The question</h2>
 <blockquote>How much can a language model infer when it sees only part of a multiple-choice problem?</blockquote>
@@ -60,8 +60,9 @@ PROJECTS = [
 <p>The comparison asks whether a model can exploit answer priors, dataset artifacts, or other shortcuts when the information needed for the intended reasoning task is absent.</p>
 <h2>Controls that matter</h2>
 <ul><li><strong>Paraphrasing:</strong> examine sensitivity to wording and surface cues.</li><li><strong>Answer randomization:</strong> probe dependence on choice ordering.</li><li><strong>Prior flattening:</strong> examine the contribution of answer priors.</li><li><strong>Out-of-distribution evaluation:</strong> assess how conclusions change across datasets.</li></ul>
-<h2>Research context</h2>
-<p>The work was accepted or presented in contexts including the <strong>RANLP 2025 Student Research Workshop</strong> and NeurIPS 2025 workshops related to language-model evaluation and efficient reasoning.</p>
+<h2>NeurIPS 2025 workshops</h2>
+<p>The work was accepted to:</p>
+<ul><li><a href="https://neurips.cc/virtual/2025/workshop/109549" target="_blank" rel="noopener">Evaluating the Evolving LLM Lifecycle: Benchmarks, Emergent Abilities, and Scaling</a></li><li><a href="https://neurips.cc/virtual/2025/workshop/109556" target="_blank" rel="noopener">The First Workshop on Efficient Reasoning</a></li><li><a href="https://neurips.cc/virtual/2025/workshop/109568" target="_blank" rel="noopener">Lock-LLM Workshop: Prevent Unauthorized Knowledge Use from Large Language Models</a></li></ul>
 <h2>Why this work matters to my direction</h2>
 <p>The central habit is to ask what an evaluation supports. As I move into biological ML, I want to bring the same attention to split design, hidden shortcuts, and whether a task measures the capability a scientific user needs.</p>'''
     },
@@ -113,8 +114,6 @@ BUILDS = [
 <p>Dependency and API upgrades can change what an application does even when its code still compiles. Isotope investigates the effect of an upgrade on the application’s behavior and checks whether a proposed repair actually preserves the intended result.</p>
 <h2>How it works</h2>
 <ol><li><strong>Identify affected code.</strong> Use static analysis to locate the parts of an application that depend on a changed API or dependency.</li><li><strong>Compare old and new behavior.</strong> Run isolated executions to make the consequences of an upgrade observable.</li><li><strong>Reason about the difference.</strong> Combine execution evidence with LLM-assisted reasoning when a change requires further interpretation.</li><li><strong>Verify proposed repairs independently.</strong> Check a candidate fix through separate execution rather than accepting the repair proposal itself as evidence.</li></ol>
-<h2>My contribution</h2>
-<p>I helped build the project with my team as a local-first CI workflow using <strong>TypeScript/Node, static analysis, isolated execution, and LLM-assisted reasoning</strong>. The result was a working GitHub Action that brings upgrade analysis and repair verification into the development workflow.</p>
 <h2>Why this matters to my work</h2>
 <p>Isotope connects my interests in reliable AI and research engineering: make the behavior observable, preserve the evidence, and evaluate a proposed intervention independently.</p>'''
     },
