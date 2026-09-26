@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 PROJECTS = [
     {
-        'id': 'ucl', 'label': 'Selected work / Biomedical machine learning',
+        'id': 'ucl', 'label': 'Selected research / Biomedical machine learning',
         'title': 'Predicting UCL reconstruction risk in MLB pitchers',
         'description': 'Comparing nine machine learning approaches to a sports-medicine question, with interpretation alongside prediction.',
         'meta': ['IEEE ICHI 2025', 'Oral presentation', 'Lead & corresponding author'],
@@ -27,7 +27,7 @@ PROJECTS = [
 <p>This work is part of my foundation in biomedical prediction: relating model comparisons to a domain question, interpreting learned associations, and keeping the distinction between a useful prediction and an actionable intervention visible.</p>'''
     },
     {
-        'id': 'entropy', 'label': 'Selected work / Interpretability & reliability',
+        'id': 'entropy', 'label': 'Selected research / Interpretability & reliability',
         'title': 'Sparse Semantic Entropy Probes',
         'description': 'Investigating whether sparse internal representations can help detect unreliable language-model outputs.',
         'meta': ['Research experiments', 'Gemma-Scope SAE features', 'Preliminary results'],
@@ -47,7 +47,7 @@ PROJECTS = [
 <ul><li>Whether selected features transfer across datasets and kinds of questions.</li><li>Whether predictiveness survives controls for response length, token identity, and other shortcuts.</li><li>Whether a feature is causally relevant to a model’s behavior, beyond being correlated with correctness.</li></ul>'''
     },
     {
-        'id': 'ablations', 'label': 'Selected work / Language-model evaluation',
+        'id': 'ablations', 'label': 'Selected research / Language-model evaluation',
         'title': 'What remains when the question is missing?',
         'description': 'Partial-input ablations for multiple-choice reasoning: investigating what benchmarks actually measure.',
         'meta': ['RANLP 2025 Student Research Workshop', 'NeurIPS 2025 workshop contexts'],
@@ -66,7 +66,7 @@ PROJECTS = [
 <p>The central habit is to ask what an evaluation supports. As I move into biological ML, I want to bring the same attention to split design, hidden shortcuts, and whether a task measures the capability a scientific user needs.</p>'''
     },
     {
-        'id': 'nfl', 'label': 'Selected work / Biomedical prediction',
+        'id': 'nfl', 'label': 'Selected research / Biomedical prediction',
         'title': 'NFL injured reserve prediction',
         'description': 'Predictive modeling with temporal evaluation and feature attribution for wide receivers and tight ends.',
         'meta': ['IEEE MIT URTC 2025', '~746 player-seasons', '~152 positive IR cases'],
@@ -83,7 +83,7 @@ PROJECTS = [
 <p>The modest balanced accuracies make the limitations visible. The study offers experience with temporal evaluation, explainability, and predictive modeling in a health-related domain; it does not establish a deployable clinical decision tool.</p>'''
     },
     {
-        'id': 'biofm', 'label': 'Selected work / Emerging AI-for-science project',
+        'id': 'biofm', 'section': 'projects', 'label': 'Projects / Emerging AI-for-science project',
         'title': 'Molecular visualization / BioFM playground',
         'description': 'A planned research environment for connecting protein sequence, structure, and learned representations.',
         'meta': ['Design stage', 'Exploratory builder project', 'Capabilities below are planned'],
@@ -97,6 +97,51 @@ PROJECTS = [
 <p>Keep the environment useful for asking a concrete research question. Distinguish observed structure from predictions, model confidence from experimental certainty, and a visually interesting projection from evidence about biological function.</p>
 <h2>What this project is for</h2>
 <p>This is a deliberate step into biological ML: learning how model inputs, representations, structural context, and evaluation fit together while building a tool that makes those relationships inspectable.</p>'''
+    }
+]
+
+BUILDS = [
+    {
+        'id': 'isotope', 'label': 'Projects / Isotope',
+        'title': 'Isotope',
+        'description': 'Making dependency and API upgrades safer with behavioral comparisons and independently verified repairs.',
+        'meta': ['HopHacks 2026', 'Winner: Strategy Sponsor Track', 'Team project · Working GitHub Action'],
+        'body': '''
+<div class="callout"><p><strong>Our team won the Strategy Sponsor Track at HopHacks 2026.</strong> I helped build Isotope into a working GitHub Action, bringing code analysis, isolated execution, and LLM-assisted reasoning into a local-first CI workflow.</p></div>
+<p><a href="https://github.com/hmartel222/Isotope">View Isotope on GitHub ↗</a></p>
+<h2>The problem</h2>
+<p>Dependency and API upgrades can change what an application does even when its code still compiles. Isotope investigates the effect of an upgrade on the application’s behavior and checks whether a proposed repair actually preserves the intended result.</p>
+<h2>How it works</h2>
+<ol><li><strong>Identify affected code.</strong> Use static analysis to locate the parts of an application that depend on a changed API or dependency.</li><li><strong>Compare old and new behavior.</strong> Run isolated executions to make the consequences of an upgrade observable.</li><li><strong>Reason about the difference.</strong> Combine execution evidence with LLM-assisted reasoning when a change requires further interpretation.</li><li><strong>Verify proposed repairs independently.</strong> Check a candidate fix through separate execution rather than accepting the repair proposal itself as evidence.</li></ol>
+<h2>My contribution</h2>
+<p>I helped build the project with my team as a local-first CI workflow using <strong>TypeScript/Node, static analysis, isolated execution, and LLM-assisted reasoning</strong>. The result was a working GitHub Action that brings upgrade analysis and repair verification into the development workflow.</p>
+<h2>Why this matters to my work</h2>
+<p>Isotope connects my interests in reliable AI and research engineering: make the behavior observable, preserve the evidence, and evaluate a proposed intervention independently.</p>'''
+    },
+    {
+        'id': 'alpharx', 'label': 'Projects / Data & research systems',
+        'title': 'AlphaRx',
+        'description': 'A working research prototype exploring population-health signals and healthcare-sector market behavior.',
+        'meta': ['Side project', 'Working research prototype', 'No public repository yet'],
+        'body': '''
+<h2>The question</h2>
+<p>Do population-health signals, such as CDC influenza surveillance and Google Trends, contain incremental information for forecasting healthcare-sector market behavior?</p>
+<h2>What I built</h2>
+<p>I built the data and modeling pipeline around <strong>point-in-time data integration, feature engineering, and out-of-sample evaluation</strong>. The infrastructure uses Python, Docker, PostgreSQL, and Airflow to support reproducible data processing and experimentation.</p>
+<h2>Research priorities</h2>
+<ul><li>Track when information would have been available to a model.</li><li>Compare signals against appropriate baselines on observations outside the training data.</li><li>Keep ingestion, feature construction, and evaluation reproducible.</li></ul>
+<h2>Current stage</h2>
+<p>AlphaRx exists as a <strong>working research prototype</strong>. It is an investigation into data and forecasting methodology, with no claim of a finished trading system or established financial performance. There is no public project link yet.</p>'''
+    },
+    {
+        'id': 'glucagone', 'label': 'Projects / Healthcare',
+        'title': 'GlucaGone',
+        'description': 'A diabetes-related app exploring machine learning and understandable health information.',
+        'meta': ['2025 project', 'Healthcare ML', 'Web application'],
+        'body': '''
+<h2>Overview</h2>
+<p>GlucaGone is a diabetes-related application exploring how machine learning can support more understandable health information.</p>
+<p>The project is part of my broader interest in building practical tools around health-related data and making model outputs easier to interpret.</p>'''
     }
 ]
 
@@ -150,24 +195,29 @@ NOTES = [
 ]
 
 def render(page, kind, next_page):
-    section = 'work' if kind == 'work' else 'notes'
+    section = page.get('section', kind)
+    group_label = {'work': 'Selected research', 'projects': 'Projects', 'notes': 'Research notebook'}[section]
+    back_label = {'work': 'selected research', 'projects': 'projects', 'notes': 'the notebook'}[section]
+    next_url = f'../../{kind}/{next_page["id"]}/'
+    if page['id'] == 'biofm':
+        next_url = '../../projects/isotope/'
     return f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#07100f"><meta name="description" content="{escape(page['description'], quote=True)}">
+<meta name="theme-color" content="#ffffff"><meta name="description" content="{escape(page['description'], quote=True)}">
 <meta property="og:title" content="{escape(page['title'], quote=True)} · Rohan Butani"><meta property="og:description" content="{escape(page['description'], quote=True)}"><meta property="og:type" content="article">
 <title>{escape(page['title'])} · Rohan Butani</title><link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css"><script src="../../app.js" defer></script></head><body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header detail-header"><a class="identity" href="../../" aria-label="Rohan Butani home"><span class="monogram">rb<span>.</span></span><span class="identity-text">Rohan Butani<small>research / engineering</small></span></a><a class="detail-nav" href="../../#{section}">← {'Selected work' if kind == 'work' else 'Research notebook'}</a><a class="cv-link" href="../../cv.html">CV ↗</a></header>
-<main id="main" class="section-wrap detail-main"><a class="back-link" href="../../#{section}">← Back to {'selected work' if kind == 'work' else 'the notebook'}</a><p class="eyebrow section-label">{escape(page['label'])}</p><h1>{escape(page['title'])}</h1><p class="detail-subtitle">{escape(page['description'])}</p><div class="detail-meta">{''.join('<span>' + escape(item) + '</span>' for item in page['meta'])}</div><article class="detail-body" aria-label="{'Project details' if kind == 'work' else 'Notebook entry'}">{page['body']}</article><div class="detail-end"><a href="mailto:rbutani1@jh.edu">Discuss this {'work' if kind == 'work' else 'question'} ↗</a><a href="../{next_page['id']}/">Next {'project' if kind == 'work' else 'note'} →</a></div></main>
+<header class="site-header detail-header"><a class="identity" href="../../" aria-label="Rohan Butani home"><span class="monogram">rb<span>.</span></span><span class="identity-text">Rohan Butani<small>research / engineering</small></span></a><a class="detail-nav" href="../../#{section}">← {group_label}</a><a class="cv-link" href="../../cv.html">CV ↗</a></header>
+<main id="main" class="section-wrap detail-main"><a class="back-link" href="../../#{section}">← Back to {back_label}</a><p class="eyebrow section-label">{escape(page['label'])}</p><h1>{escape(page['title'])}</h1><p class="detail-subtitle">{escape(page['description'])}</p><div class="detail-meta">{''.join('<span>' + escape(item) + '</span>' for item in page['meta'])}</div><article class="detail-body" aria-label="{'Notebook entry' if kind == 'notes' else 'Project details'}">{page['body']}</article><div class="detail-end"><a href="mailto:rbutani1@jh.edu">Discuss this {'question' if kind == 'notes' else 'work'} ↗</a><a href="{next_url}">Next {'note' if kind == 'notes' else 'project'} →</a></div></main>
 <footer class="site-footer section-wrap"><span>© <span id="year">2026</span> Rohan Butani</span><a href="../../">Back to home ↗</a></footer></body></html>'''
 
-for kind, pages in [('work', PROJECTS), ('notes', NOTES)]:
+for kind, pages in [('work', PROJECTS), ('notes', NOTES), ('projects', BUILDS)]:
     for i, page in enumerate(pages):
         directory = ROOT / kind / page['id']
         directory.mkdir(parents=True, exist_ok=True)
         (directory / 'index.html').write_text(render(page, kind, pages[(i + 1) % len(pages)]))
-print(f'Generated {len(PROJECTS)} project pages and {len(NOTES)} notebook pages.')
+print(f'Generated {len(PROJECTS) + len(BUILDS)} research/project pages and {len(NOTES)} notebook pages.')

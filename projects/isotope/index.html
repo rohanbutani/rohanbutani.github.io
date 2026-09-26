@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff"><meta name="description" content="Making dependency and API upgrades safer with behavioral comparisons and independently verified repairs.">
+<meta property="og:title" content="Isotope · Rohan Butani"><meta property="og:description" content="Making dependency and API upgrades safer with behavioral comparisons and independently verified repairs."><meta property="og:type" content="article">
+<title>Isotope · Rohan Butani</title><link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css"><script src="../../app.js" defer></script></head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header detail-header"><a class="identity" href="../../" aria-label="Rohan Butani home"><span class="monogram">rb<span>.</span></span><span class="identity-text">Rohan Butani<small>research / engineering</small></span></a><a class="detail-nav" href="../../#projects">← Projects</a><a class="cv-link" href="../../cv.html">CV ↗</a></header>
+<main id="main" class="section-wrap detail-main"><a class="back-link" href="../../#projects">← Back to projects</a><p class="eyebrow section-label">Projects / Isotope</p><h1>Isotope</h1><p class="detail-subtitle">Making dependency and API upgrades safer with behavioral comparisons and independently verified repairs.</p><div class="detail-meta"><span>HopHacks 2026</span><span>Winner: Strategy Sponsor Track</span><span>Team project · Working GitHub Action</span></div><article class="detail-body" aria-label="Project details">
+<div class="callout"><p><strong>Our team won the Strategy Sponsor Track at HopHacks 2026.</strong> I helped build Isotope into a working GitHub Action, bringing code analysis, isolated execution, and LLM-assisted reasoning into a local-first CI workflow.</p></div>
+<p><a href="https://github.com/hmartel222/Isotope">View Isotope on GitHub ↗</a></p>
+<h2>The problem</h2>
+<p>Dependency and API upgrades can change what an application does even when its code still compiles. Isotope investigates the effect of an upgrade on the application’s behavior and checks whether a proposed repair actually preserves the intended result.</p>
+<h2>How it works</h2>
+<ol><li><strong>Identify affected code.</strong> Use static analysis to locate the parts of an application that depend on a changed API or dependency.</li><li><strong>Compare old and new behavior.</strong> Run isolated executions to make the consequences of an upgrade observable.</li><li><strong>Reason about the difference.</strong> Combine execution evidence with LLM-assisted reasoning when a change requires further interpretation.</li><li><strong>Verify proposed repairs independently.</strong> Check a candidate fix through separate execution rather than accepting the repair proposal itself as evidence.</li></ol>
+<h2>My contribution</h2>
+<p>I helped build the project with my team as a local-first CI workflow using <strong>TypeScript/Node, static analysis, isolated execution, and LLM-assisted reasoning</strong>. The result was a working GitHub Action that brings upgrade analysis and repair verification into the development workflow.</p>
+<h2>Why this matters to my work</h2>
+<p>Isotope connects my interests in reliable AI and research engineering: make the behavior observable, preserve the evidence, and evaluate a proposed intervention independently.</p></article><div class="detail-end"><a href="mailto:rbutani1@jh.edu">Discuss this work ↗</a><a href="../../projects/alpharx/">Next project →</a></div></main>
+<footer class="site-footer section-wrap"><span>© <span id="year">2026</span> Rohan Butani</span><a href="../../">Back to home ↗</a></footer></body></html>
