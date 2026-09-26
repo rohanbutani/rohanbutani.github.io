@@ -28,13 +28,13 @@ document.addEventListener('click', event => {
 window.addEventListener('scroll', () => header?.classList.toggle('scrolled', window.scrollY > 12), { passive: true });
 header?.classList.toggle('scrolled', window.scrollY > 12);
 
-const sections = document.querySelectorAll('main section[id]');
+const sections = document.querySelectorAll('main section[id]:not([hidden])');
 if ('IntersectionObserver' in window && nav) {
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
       nav.querySelectorAll('a').forEach(link => {
-        const sectionId = entry.target.id === 'professional-experience' ? 'experience' : entry.target.id;
+        const sectionId = entry.target.id;
         const active = link.getAttribute('href') === `#${sectionId}`;
         link.classList.toggle('active', active);
         if (active) link.setAttribute('aria-current', 'location');
@@ -44,22 +44,6 @@ if ('IntersectionObserver' in window && nav) {
   }, { rootMargin: '-15% 0px -60% 0px', threshold: 0 });
   sections.forEach(section => observer.observe(section));
 }
-
-const filters = document.querySelectorAll('[data-filter]');
-filters.forEach(button => button.addEventListener('click', () => {
-  filters.forEach(filter => {
-    const active = filter === button;
-    filter.classList.toggle('active', active);
-    filter.setAttribute('aria-pressed', String(active));
-  });
-  let visible = 0;
-  document.querySelectorAll('[data-categories]').forEach(card => {
-    const show = button.dataset.filter === 'all' || card.dataset.categories.split(' ').includes(button.dataset.filter);
-    card.hidden = !show;
-    if (show) visible++;
-  });
-  document.querySelector('#work-count').textContent = `${String(visible).padStart(2, '0')} research project${visible === 1 ? '' : 's'}`;
-}));
 
 document.querySelector('.copy-email')?.addEventListener('click', async () => {
   const status = document.querySelector('.copy-feedback');

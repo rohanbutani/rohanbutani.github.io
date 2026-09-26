@@ -6,10 +6,10 @@ ROOT = Path(__file__).resolve().parent.parent
 
 PROJECTS = [
     {
-        'id': 'ucl', 'label': 'Selected research / Biomedical machine learning',
+        'id': 'ucl', 'section': 'experience', 'label': 'Research experience / UCLR risk prediction',
         'title': 'Predicting UCL reconstruction risk in MLB pitchers',
         'description': 'Comparing nine machine learning approaches to a sports-medicine question, with interpretation alongside prediction.',
-        'meta': ['IEEE ICHI 2025', 'Oral presentation', 'Lead & corresponding author'],
+        'meta': ['Georgia Tech', 'IEEE ICHI 2025', 'Oral presentation', 'Lead & corresponding author'],
         'body': '''
 <h2>The question</h2>
 <p>Can machine learning help identify patterns associated with ulnar collateral ligament reconstruction in professional baseball pitchers? This study compares conventional classifiers, ensembles, and neural decision-tree approaches on MLB data spanning approximately 2016–2024.</p>
@@ -27,10 +27,10 @@ PROJECTS = [
 <p>This work is part of my foundation in biomedical prediction: relating model comparisons to a domain question, interpreting learned associations, and keeping the distinction between a useful prediction and an actionable intervention visible.</p>'''
     },
     {
-        'id': 'entropy', 'label': 'Selected research / Interpretability & reliability',
+        'id': 'entropy', 'section': 'projects', 'label': 'Projects / Sparse Semantic Entropy Probes',
         'title': 'Sparse Semantic Entropy Probes',
         'description': 'Investigating whether sparse internal representations can help detect unreliable language-model outputs.',
-        'meta': ['Research experiments', 'Gemma-Scope SAE features', 'Preliminary results'],
+        'meta': ['Research project', 'Preliminary results'],
         'body': '''
 <h2>The question</h2>
 <p>Which internal representations are predictive of language-model correctness, and can a small subset of sparse features provide a useful reliability signal? This project brings together sparse autoencoders, feature attribution, semantic entropy, and statistical feature selection.</p>
@@ -47,7 +47,7 @@ PROJECTS = [
 <ul><li>Whether selected features transfer across datasets and kinds of questions.</li><li>Whether predictiveness survives controls for response length, token identity, and other shortcuts.</li><li>Whether a feature is causally relevant to a model’s behavior, beyond being correlated with correctness.</li></ul>'''
     },
     {
-        'id': 'ablations', 'label': 'Selected research / Language-model evaluation',
+        'id': 'ablations', 'section': 'projects', 'label': 'Projects / Partial-input reasoning ablations',
         'title': 'What remains when the question is missing?',
         'description': 'Partial-input ablations for multiple-choice reasoning: investigating what benchmarks actually measure.',
         'meta': ['RANLP 2025 Student Research Workshop', 'NeurIPS 2025 workshop contexts'],
@@ -66,10 +66,10 @@ PROJECTS = [
 <p>The central habit is to ask what an evaluation supports. As I move into biological ML, I want to bring the same attention to split design, hidden shortcuts, and whether a task measures the capability a scientific user needs.</p>'''
     },
     {
-        'id': 'nfl', 'label': 'Selected research / Biomedical prediction',
+        'id': 'nfl', 'section': 'experience', 'label': 'Research experience / NFL injured reserve prediction',
         'title': 'NFL injured reserve prediction',
         'description': 'Predictive modeling with temporal evaluation and feature attribution for wide receivers and tight ends.',
-        'meta': ['IEEE MIT URTC 2025', '~746 player-seasons', '~152 positive IR cases'],
+        'meta': ['Wharton', 'IEEE MIT URTC 2025'],
         'body': '''
 <h2>The question</h2>
 <p>Can performance, exposure, and prior-injury information help predict injured-reserve outcomes for NFL wide receivers and tight ends?</p>
@@ -196,23 +196,34 @@ NOTES = [
 
 def render(page, kind, next_page):
     section = page.get('section', kind)
-    group_label = {'work': 'Selected research', 'projects': 'Projects', 'notes': 'Research notebook'}[section]
-    back_label = {'work': 'selected research', 'projects': 'projects', 'notes': 'the notebook'}[section]
+    group_label = {'experience': 'Research experience', 'work': 'Research experience', 'projects': 'Projects', 'notes': 'Research notebook'}[section]
+    back_label = {'experience': 'research experience', 'work': 'research experience', 'projects': 'projects', 'notes': 'the notebook'}[section]
     next_url = f'../../{kind}/{next_page["id"]}/'
     if page['id'] == 'biofm':
         next_url = '../../projects/isotope/'
+    if page['id'] == 'ucl':
+        next_url = '../../work/nfl/'
+    elif page['id'] == 'nfl':
+        next_url = '../../work/ucl/'
+    elif page['id'] == 'ablations':
+        next_url = '../../projects/isotope/'
+    robots = '<meta name="robots" content="noindex">' if kind == 'notes' else ''
+    back_url = '../../' if kind == 'notes' else f'../../#{section}'
+    if kind == 'notes':
+        group_label = 'Home'
+        back_label = 'home'
     return f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff"><meta name="description" content="{escape(page['description'], quote=True)}">
+{robots}<meta name="theme-color" content="#ffffff"><meta name="description" content="{escape(page['description'], quote=True)}">
 <meta property="og:title" content="{escape(page['title'], quote=True)} · Rohan Butani"><meta property="og:description" content="{escape(page['description'], quote=True)}"><meta property="og:type" content="article">
 <title>{escape(page['title'])} · Rohan Butani</title><link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css"><script src="../../app.js" defer></script></head><body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header detail-header"><a class="identity" href="../../" aria-label="Rohan Butani home"><span class="monogram">rb<span>.</span></span><span class="identity-text">Rohan Butani<small>research / engineering</small></span></a><a class="detail-nav" href="../../#{section}">← {group_label}</a><a class="cv-link" href="../../cv.html">CV ↗</a></header>
-<main id="main" class="section-wrap detail-main"><a class="back-link" href="../../#{section}">← Back to {back_label}</a><p class="eyebrow section-label">{escape(page['label'])}</p><h1>{escape(page['title'])}</h1><p class="detail-subtitle">{escape(page['description'])}</p><div class="detail-meta">{''.join('<span>' + escape(item) + '</span>' for item in page['meta'])}</div><article class="detail-body" aria-label="{'Notebook entry' if kind == 'notes' else 'Project details'}">{page['body']}</article><div class="detail-end"><a href="mailto:rbutani1@jh.edu">Discuss this {'question' if kind == 'notes' else 'work'} ↗</a><a href="{next_url}">Next {'note' if kind == 'notes' else 'project'} →</a></div></main>
+<header class="site-header detail-header"><a class="identity" href="../../" aria-label="Rohan Butani home"><span class="monogram">rb<span>.</span></span><span class="identity-text">Rohan Butani<small>research / engineering</small></span></a><a class="detail-nav" href="{back_url}">← {group_label}</a><a class="cv-link" href="../../cv.html">CV ↗</a></header>
+<main id="main" class="section-wrap detail-main"><a class="back-link" href="{back_url}">← Back to {back_label}</a><p class="eyebrow section-label">{escape(page['label'])}</p><h1>{escape(page['title'])}</h1><p class="detail-subtitle">{escape(page['description'])}</p><div class="detail-meta">{''.join('<span>' + escape(item) + '</span>' for item in page['meta'])}</div><article class="detail-body" aria-label="{'Notebook entry' if kind == 'notes' else 'Project details'}">{page['body']}</article><div class="detail-end"><a href="mailto:rbutani1@jh.edu">Discuss this {'question' if kind == 'notes' else 'work'} ↗</a><a href="{next_url}">Next {'note' if kind == 'notes' else 'project'} →</a></div></main>
 <footer class="site-footer section-wrap"><span>© <span id="year">2026</span> Rohan Butani</span><a href="../../">Back to home ↗</a></footer></body></html>'''
 
 for kind, pages in [('work', PROJECTS), ('notes', NOTES), ('projects', BUILDS)]:
