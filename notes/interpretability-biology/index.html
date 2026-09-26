@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07100f"><meta name="description" content="An open research question: which tools for understanding language-model features could help us inspect biological representations?">
+<meta property="og:title" content="Mechanistic interpretability outside language models · Rohan Butani"><meta property="og:description" content="An open research question: which tools for understanding language-model features could help us inspect biological representations?"><meta property="og:type" content="article">
+<title>Mechanistic interpretability outside language models · Rohan Butani</title><link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css"><script src="../../app.js" defer></script></head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header detail-header"><a class="identity" href="../../" aria-label="Rohan Butani home"><span class="monogram">rb<span>.</span></span><span class="identity-text">Rohan Butani<small>research / engineering</small></span></a><a class="detail-nav" href="../../#notes">← Research notebook</a><a class="cv-link" href="../../cv.html">CV ↗</a></header>
+<main id="main" class="section-wrap detail-main"><a class="back-link" href="../../#notes">← Back to the notebook</a><p class="eyebrow section-label">Research notebook / Note 003</p><h1>Mechanistic interpretability outside language models</h1><p class="detail-subtitle">An open research question: which tools for understanding language-model features could help us inspect biological representations?</p><div class="detail-meta"><span>Research question</span><span>September 2026</span><span>Interpretability</span></div><article class="detail-body" aria-label="Notebook entry">
+<h2>The connection I want to explore</h2>
+<p>Gemma Scope provides sparse autoencoders for studying internal representations in Gemma 2. These tools decompose activations into sparse features that researchers can inspect. My work with SAE features motivates a question about whether related approaches could be useful for biological foundation models. <a href="https://arxiv.org/abs/2408.05147">Lieberum et al., Gemma Scope (2024)</a>.</p>
+<p>I am treating that transfer as a research question. An interpretable feature in a protein model would need a biological account of what it represents and evidence that the account survives appropriate controls.</p>
+<h2>A possible investigation</h2>
+<ol><li>Choose a representation and a narrowly defined biological property.</li><li>Inspect whether sparse features associate with that property across diverse sequences.</li><li>Compare against simpler probes and sequence-derived baselines.</li><li>Check sensitivity to model layer, feature selection, and sequence similarity.</li><li>Where feasible, investigate whether interventions on a feature have a consistent effect on the model’s output.</li></ol>
+<h2>What would convince me?</h2>
+<p>I would want evidence beyond a compelling visualization or a small set of examples. My working standard is a feature whose proposed interpretation predicts behavior on held-out cases, survives confounder checks, and suggests a useful next experiment.</p>
+<p>This is one place where my existing interest in interpretability meets my emerging focus on biological ML. The connection is worth investigating precisely because its usefulness should be tested.</p></article><div class="detail-end"><a href="mailto:rbutani1@jh.edu">Discuss this question ↗</a><a href="../protein-language-models/">Next note →</a></div></main>
+<footer class="site-footer section-wrap"><span>© <span id="year">2026</span> Rohan Butani</span><a href="../../">Back to home ↗</a></footer></body></html>
