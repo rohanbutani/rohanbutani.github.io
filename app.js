@@ -45,3 +45,32 @@ if ('IntersectionObserver' in window && nav) {
   sections.forEach(section => observer.observe(section));
 }
 
+const mapDescriptions = {
+  bio: 'BioFMs / Reusable representations of sequence, structure, and cellular state.',
+  protein: 'Protein design / Moving from predicting biology to proposing useful designs.',
+  scientific: 'Scientific ML / Learned models informed by geometry, dynamics, and mechanism.',
+  interpretability: 'Interpretability / What does a representation know, and where does it fail?',
+  health: 'Health ML / Reliable prediction grounded in real clinical questions.',
+  genomics: 'Genomics / Learning from biological variation across sequences and systems.',
+  generative: 'Generative models / Diffusion, flow matching, and constrained sampling.'
+};
+let pinnedNode = null;
+function highlightNode(id) {
+  document.querySelectorAll('.map-node').forEach(node => node.classList.toggle('active', node.dataset.node === id));
+  document.querySelectorAll('[data-edge]').forEach(edge => edge.classList.toggle('active', edge.dataset.edge === id));
+  const description = document.querySelector('#map-description');
+  if (description) description.textContent = mapDescriptions[id] || 'Explore the connections. Hover or select a node.';
+}
+document.querySelectorAll('.map-node').forEach(node => {
+  node.setAttribute('aria-pressed', 'false');
+  node.addEventListener('pointerenter', () => highlightNode(node.dataset.node));
+  node.addEventListener('pointerleave', () => highlightNode(pinnedNode));
+  node.addEventListener('focus', () => highlightNode(node.dataset.node));
+  node.addEventListener('blur', () => highlightNode(pinnedNode));
+  node.addEventListener('click', () => {
+    pinnedNode = pinnedNode === node.dataset.node ? null : node.dataset.node;
+    document.querySelectorAll('.map-node').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.node === pinnedNode)));
+    highlightNode(pinnedNode);
+  });
+});
+
