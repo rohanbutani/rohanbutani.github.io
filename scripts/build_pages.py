@@ -9,7 +9,7 @@ PROJECTS = [
         'id': 'ucl', 'section': 'experience', 'label': 'Research experience / UCLR risk prediction',
         'title': 'Predicting UCL reconstruction risk in MLB pitchers',
         'description': 'Comparing nine machine learning approaches to a sports-medicine question, with interpretation alongside prediction.',
-        'meta': ['Georgia Tech', 'IEEE ICHI 2025', 'Oral presentation', 'Lead & corresponding author'],
+        'meta': ['Georgia Institute of Technology School of Mathematics', 'May 2024–June 2025', 'IEEE ICHI 2025', 'Oral presentation', 'Lead & corresponding author'],
         'body': '''
 <h2>The question</h2>
 <p>Can machine learning help identify patterns associated with ulnar collateral ligament reconstruction in professional baseball pitchers? This study compares conventional classifiers, ensembles, and neural decision-tree approaches on MLB data spanning approximately 2016–2024.</p>
@@ -20,7 +20,7 @@ PROJECTS = [
 <table><caption>Approximate accuracy reported in the study</caption><thead><tr><th scope="col">Model</th><th scope="col">Accuracy</th></tr></thead><tbody><tr><td>Deep Neural Decision Forest</td><td>~79.2%</td></tr><tr><td>Random Forest</td><td>~71.9%</td></tr></tbody></table>
 <div class="callout"><p>These values describe performance within this study. They should not be read as evidence of clinical readiness, individual treatment utility, or generalization to a different population.</p></div>
 <h2>Contribution and presentation</h2>
-<p>I was lead and corresponding author and presented the work orally at IEEE ICHI 2025. The research received approximately <strong>$3,500 in NSF student research grant support</strong>.</p>
+<p>I was lead and corresponding author and presented the work orally at IEEE ICHI 2025. Conference travel was funded by approximately <strong>$3,500 in National Science Foundation grant support</strong>.</p>
 <h2>Publication title</h2>
 <p><em>Comparative Machine Learning Analysis Highlights Novel Predictive Capability of Deep Neural Decision Forest for Ulnar Collateral Ligament Reconstruction in Baseball Athletes.</em></p>
 <h2>How this connects to my direction</h2>
@@ -30,7 +30,7 @@ PROJECTS = [
         'id': 'entropy', 'section': 'projects', 'label': 'Projects / Sparse Semantic Entropy Probes',
         'title': 'Sparse Semantic Entropy Probes',
         'description': 'Investigating whether sparse internal representations can help detect unreliable language-model outputs.',
-        'meta': ['Research project', 'Preliminary results'],
+        'meta': ['August 2026–present', 'Preliminary results'],
         'body': '''
 <h2>The question</h2>
 <p>Which internal representations are predictive of language-model correctness, and can a small subset of sparse features provide a useful reliability signal? This project brings together sparse autoencoders, feature attribution, semantic entropy, and statistical feature selection.</p>
@@ -50,7 +50,7 @@ PROJECTS = [
         'id': 'ablations', 'section': 'projects', 'label': 'Projects / Partial-input reasoning ablations',
         'title': 'What remains when the question is missing?',
         'description': 'Partial-input ablations for multiple-choice reasoning: investigating what benchmarks actually measure.',
-        'meta': ['RANLP 2025 Student Research Workshop', 'NeurIPS 2025 workshop contexts'],
+        'meta': ['May 2025–present', 'RANLP 2025 Student Research Workshop', 'NeurIPS 2025 workshops'],
         'body': '''
 <h2>The question</h2>
 <blockquote>How much can a language model infer when it sees only part of a multiple-choice problem?</blockquote>
@@ -69,7 +69,7 @@ PROJECTS = [
         'id': 'nfl', 'section': 'experience', 'label': 'Research experience / NFL injured reserve prediction',
         'title': 'NFL injured reserve prediction',
         'description': 'Predictive modeling with temporal evaluation and feature attribution for wide receivers and tight ends.',
-        'meta': ['Wharton', 'IEEE MIT URTC 2025'],
+        'meta': ['The Wharton School Institute of AI and Analytics', 'June 2025–October 2025', 'Lead & corresponding author', 'IEEE MIT URTC 2025'],
         'body': '''
 <h2>The question</h2>
 <p>Can performance, exposure, and prior-injury information help predict injured-reserve outcomes for NFL wide receivers and tight ends?</p>
